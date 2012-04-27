@@ -11,27 +11,32 @@ import org.bukkit.entity.Player;
 
 public class SetOtherPassword implements CommandExecutor {
 
+	/*@Author CXdur
+	 * Part of this code belongs to OwnBlocksX, and will be changed later.
+	 * OwnBlocks is licensed to DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE, so is my code. 
+	 */
+
 	private PasswordSafe plugin;
-	
+
 	public SetOtherPassword(PasswordSafe instance) {
 		plugin = instance;
 	}
-	
-	 public boolean onCommand(CommandSender sender, Command cmd,
-             String label, String[] args) {
-	   Player p = (Player) sender;
-	   Player v = Bukkit.getServer().getPlayer(args[0]);
-	   if (p.hasPermission(plugin.getConfig().getString("Permission.Node.SetPWOthers")) || p.isOp()) {
-		  if (args.length == 0) { 
-			  p.sendMessage(ChatColor.GOLD + "Usage: /setpassword <Playername> <Password>");
-			  return true;
-		  } else if (args.length == 2) {
-			  plugin.setPassword(v.getName(), args[1]);
-			  p.sendMessage(ChatColor.RED + "His password is set to: " + ChatColor.GREEN + args[1]);
-			  return true;
-		  }
-		  }
-	return false;
-	   }
+
+	public boolean onCommand(CommandSender sender, Command cmd,
+			String label, String[] args) {
+		Player p = (Player) sender;
+		Player v = Bukkit.getServer().getPlayer(args[0]);
+		if (p.hasPermission(plugin.getConfig().getString("Permission.Node.SetPWOthers")) || p.isOp()) {
+			if (args.length == 0) { 
+				p.sendMessage(ChatColor.GOLD + "Usage: /setpassword <Playername> <Password>");
+				return true;
+			} else if (args.length == 2) {
+				plugin.setPassword(v.getName(), args[1]);
+				p.sendMessage(ChatColor.RED + "His password is set to: " + ChatColor.GREEN + args[1]);
+				return true;
+			}
+		}
+		return false;
+	}
 }
 

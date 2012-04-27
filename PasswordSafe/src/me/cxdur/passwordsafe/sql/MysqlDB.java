@@ -13,6 +13,11 @@ import me.cxdur.passwordsafe.PasswordSafe;
 
 public class MysqlDB {
 
+	/*@Author CXdur
+	 * Part of this code belongs to OwnBlocksX, and will be changed later.
+	 * OwnBlocks is licensed to DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE, so is my code. 
+	 */
+
 	private String username;
 	private String password;
 	private String host;
@@ -112,7 +117,7 @@ public class MysqlDB {
 		}
 		return ip;
 	} 	
-	
+
 	public synchronized String setPassword(String playerName, String password) {
 		Statement s = null;
 		try {

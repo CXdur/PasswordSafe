@@ -10,6 +10,11 @@ import org.bukkit.ChatColor;
 
 public class LoginCommand implements CommandExecutor {
 
+	/*@Author CXdur
+	 * Part of this code belongs to OwnBlocksX, and will be changed later.
+	 * OwnBlocks is licensed to DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE, so is my code. 
+	 */
+
 	private PasswordSafe plugin;
 
 	public LoginCommand(PasswordSafe instance) {

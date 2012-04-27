@@ -17,15 +17,20 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class PasswordSafe extends JavaPlugin {
+public class PasswordSafe extends JavaPlugin {	
+
+	/*@Author CXdur
+	 * Part of this code belongs to OwnBlocksX, and will be changed later.
+	 * OwnBlocks is licensed to DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE, so is my code. 
+	 */
 
 	private MysqlDB mysqlDB;
 	private String host,databaseName,username,password;
-	
+
 	public HashMap<Player, String> NotLogged = new HashMap<Player, String>();
-	
+
 	public PasswordSafeListener listener = new PasswordSafeListener(this);
-	
+
 	FileConfiguration conf;
 
 	public void onEnable() {
@@ -37,7 +42,7 @@ public class PasswordSafe extends JavaPlugin {
 		createTable();
 		registerAll();
 	}
-    
+
 	public void addPlayer(String name) {
 		if (!mysqlDB.hasPlayer(name)) {
 			mysqlDB.addPlayer(name);
@@ -51,7 +56,7 @@ public class PasswordSafe extends JavaPlugin {
 			getServer().getPlayer(name).sendMessage(ChatColor.GREEN + "/login <Password>");
 		}
 	}
-	
+
 	public void registerAll() {
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(listener, this);
@@ -60,7 +65,7 @@ public class PasswordSafe extends JavaPlugin {
 		getCommand("setotherpassword").setExecutor(new SetOtherPassword(this));
 		getCommand("setpassword").setExecutor(new SetPasswordCommand(this));
 	}
-	
+
 	public void createTable() {
 		try {
 			mysqlDB.loadPlayersTable();
@@ -83,15 +88,15 @@ public class PasswordSafe extends JavaPlugin {
 	public synchronized String getPassword(String playerName) {
 		return mysqlDB.getPassword(playerName);
 	}
-	
+
 	public void setPassword(String playerName, String password) {
 		mysqlDB.setPassword(playerName, password);
 	}
-	
+
 	public synchronized String getIP(String playerName) {
 		return mysqlDB.getIP(playerName);
 	}
-	
+
 	public void addConfigDefaults() {
 		conf.options().header("PasswordSafe config, please fill this out before enabling the plugin for real: ");
 		conf.addDefault("MySQL.Host", "localhost");
