@@ -1,0 +1,29 @@
+name: PasswordSafe
+version: 0.1
+main: me.cxdur.passwordsafe.PasswordSafe
+author: CXdur
+commands:
+    getpassword:
+      aliases:
+        - getpw
+      description: GetPW
+      usage: |
+             /<command>
+    login:
+      aliases:
+        - logmein
+      description: loguin
+      usage: |
+             /<command>
+    setotherpassword:
+      aliases:
+        - setotherpw
+      description: setotherpw
+      usage: |
+             /<command>
+    setpassword:
+      aliases:
+        - setpw
+      description: setsurpw
+      usage: |
+             /<command>
